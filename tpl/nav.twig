@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-brown fixed-top">
+    <a {% if navigation[0].class == true %} class="navbar-brand text-uppercase h5 active" {% else %} class="navbar-brand text-uppercase h5" {%  endif %} href="{{ navigation[0].href }}">{{ navigation[0].caption }}</a>
+    <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="my-nav" class="collapse navbar-collapse justify-content-center">
+        <ul id="navigation" class="navbar-nav">
+            {% for item in navigation %}
+                <li {% if navigation[0].href == item.href and item.class == true %} class="nav-item active li-hidden" {% elseif navigation[0].href == item.href and item.class != true %} class="nav-item li-hidden" {% elseif item.class == true %} class="nav-item active"   {% else %}  class="nav-item" {% endif %}>
+                    <a class="nav-link h5 text-uppercase" href="../{{ item.href }}">{{ item.caption }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

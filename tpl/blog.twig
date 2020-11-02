@@ -1,0 +1,10 @@
+{% extends 'main.twig' %}
+    {% block title %}
+        {{ page_title }}
+    {% endblock %}
+    {% block content %}
+        {% for page in page_content_list %}
+            <p>{{ page.content }}</p>
+            <button class="btn btn-primary"><a href="{{ page.title }}/{{ page.content }}">Подробнее</a></button>
+        {% endfor %}
+    {% endblock %}
